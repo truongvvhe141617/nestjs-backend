@@ -21,7 +21,6 @@ export class AuthService {
             })
             return user
         } catch (error) {
-            console.log('error', error)
         }
     }
 }
