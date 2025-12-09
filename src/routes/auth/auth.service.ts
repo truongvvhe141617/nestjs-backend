@@ -1,10 +1,11 @@
-import { Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
+import { ConflictException, Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
 import { TokenExpiredError } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { TokenService } from 'src/shared/services/token.service';
 import { HasingService } from './../../shared/services/hasing.service';
 import { PrismaService } from './../../shared/services/prisma.service';
 import { LoginBodyDTO, RegisterBodyDTO } from './auth.dto';
+import { isNotFoundPrismaError, isUniqueConstraintPrismaError } from 'src/shared/helpers';
 
 @Injectable()
 export class AuthService {
@@ -24,6 +25,10 @@ export class AuthService {
             })
             return user
         } catch (error) {
+            if (isUniqueConstraintPrismaError(error)) {
+                throw new ConflictException('Email already exists')
+            }
+            throw error
         }
     }
 
@@ -99,7 +104,7 @@ export class AuthService {
 
         } catch (error) {
             //Token đã được refresh hoặc bị đánh cắp thì thông báo cho user biết.
-            if (error instanceof PrismaClientKnownRequestError && error.code == 'P2025') {
+            if (isNotFoundPrismaError(error)) {
                 throw new UnauthorizedException('Refresh token has been revoked')
             }
             // nếu token hết hạn hoặc không hợp lệ
