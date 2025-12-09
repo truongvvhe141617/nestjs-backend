@@ -1,4 +1,6 @@
 import { Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
+import { TokenExpiredError } from '@nestjs/jwt';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { TokenService } from 'src/shared/services/token.service';
 import { HasingService } from './../../shared/services/hasing.service';
 import { PrismaService } from './../../shared/services/prisma.service';
@@ -61,5 +63,50 @@ export class AuthService {
             }
         })
         return { accessToken, refreshToken }
+    }
+
+    async refreshToken(refreshToken: string) {
+        try {
+            //1.kiểm tra token có hợp lệ không
+            const decodedRefeshToken = await this.tokenService.verifyRefreshToken(refreshToken)
+            if (!decodedRefeshToken) {
+                throw new UnauthorizedException('Refresh token is not valid')
+            }
+            //2.kiểm tra token có còn hiệu lực không
+            const refreshTokenInDB = await this.prismaService.refreshToken.findUniqueOrThrow({
+                where: {
+                    token: refreshToken
+                }
+            })
+            //3.xóa token cũ
+            await this.prismaService.refreshToken.delete({
+                where: {
+                    token: refreshTokenInDB.token
+                }
+            })
+            //4.kiem tra user co ton tai khong
+            const user = await this.prismaService.user.findUnique({
+                where: {
+                    id: decodedRefeshToken.userId
+                }
+            })
+            if (!user) {
+                throw new UnauthorizedException('User not found')
+            }
+            //5.tạo token mới
+            const tokens = await this.generateTokens({ userId: user.id })
+            return tokens
+
+        } catch (error) {
+            //Token đã được refresh hoặc bị đánh cắp thì thông báo cho user biết.
+            if (error instanceof PrismaClientKnownRequestError && error.code == 'P2025') {
+                throw new UnauthorizedException('Refresh token has been revoked')
+            }
+            // nếu token hết hạn hoặc không hợp lệ
+            if (error instanceof TokenExpiredError) {
+                throw new UnauthorizedException('Refresh token is expired')
+            }
+            throw new UnauthorizedException()
+        }
     }
 }

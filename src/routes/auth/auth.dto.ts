@@ -51,3 +51,12 @@ export class RegisterResDTO extends SuccessResDTO {
     Object.assign(this, partial)
   }
 }
+
+export class RefreshTokenDTO {
+  @IsString()
+  refreshToken: string
+}
+
+export class RefreshTokenResDTO extends LoginResDTO {
+}
+
