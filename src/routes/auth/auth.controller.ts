@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post, SerializeOptions, UseGuards } from '@nestjs/common';
 import { AccessTokenGuard } from 'src/shared/guards/access-token.guard';
-import { LoginBodyDTO, LoginResDTO, RefreshTokenDTO, RefreshTokenResDTO, RegisterBodyDTO, RegisterResDTO } from './auth.dto';
+import { LoginBodyDTO, LoginResDTO, LogoutBodyDTO, LogoutResDTO, RefreshTokenDTO, RefreshTokenResDTO, RegisterBodyDTO, RegisterResDTO } from './auth.dto';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -24,5 +24,10 @@ export class AuthController {
   @UseGuards(AccessTokenGuard)
   async refreshToken(@Body() body: RefreshTokenDTO) {
     return new RefreshTokenResDTO(await this.authService.refreshToken(body.refreshToken))
+  }
+
+  @Post('logout')
+  async logout(@Body() body: LogoutBodyDTO) {
+    return new LogoutResDTO(await this.authService.logout(body.refreshToken))
   }
 }
