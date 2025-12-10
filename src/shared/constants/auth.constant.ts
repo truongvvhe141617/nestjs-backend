@@ -8,8 +8,8 @@ export const AuthType = {
 export type AuthTypeType = (typeof AuthType)[keyof typeof AuthType]
 
 export const ConditionGuard = {
-    And: 'and',
-    Or: 'or',
+    AND: 'and',
+    OR: 'or',
 } as const
 
 export type ConditionGuardType = (typeof ConditionGuard)[keyof typeof ConditionGuard]
