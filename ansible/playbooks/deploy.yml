@@ -1,0 +1,27 @@
+- hosts: api
+  become: yes
+  vars:
+    app_dir: /opt/nestjs-backend
+
+  tasks:
+    - name: Pull latest code
+      git:
+        repo: git@github.com:truongvvhe141617/nestjs-backend.git
+        dest: "{{ app_dir }}"
+        version: main
+        force: yes
+
+    - name: Install deps
+      shell: npm ci
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Prisma migrate
+      shell: npx prisma migrate deploy
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Restart app
+      shell: pm2 restart api || pm2 start dist/main.js --name api
+      args:
+        chdir: "{{ app_dir }}"

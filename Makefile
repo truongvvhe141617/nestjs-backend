@@ -1,43 +1,155 @@
-# Choose default branch
+# =========================
+# GLOBAL CONFIG
+# =========================
+APP_NAME=nestjs-backend
+NODE_ENV ?= development
+ENV ?= dev
+
 BRANCH ?= main
 REMOTE ?= origin
 
-# Show help
+ANSIBLE_DIR=ansible
+INVENTORY=$(ANSIBLE_DIR)/inventory/$(ENV).ini
+
+DOCKER_COMPOSE=docker-compose
+
+# =========================
+# HELP
+# =========================
 help:
-	@echo "Usage:"
-	@echo " make checkout BRANCH=<branch>      # checkout branch"
-	@echo " make pull BRANCH=<branch>          # git pull"
-	@echo " make push BRANCH=<branch>          # git push"
-	@echo " make status                        # git status"
-	@echo " make commit MSG=\"Your message\"     # add+commit+push"
+	@echo ""
+	@echo "Available commands:"
+	@echo "------------------"
+	@echo "Git:"
+	@echo "  make checkout BRANCH=feature-x"
+	@echo "  make pull BRANCH=main"
+	@echo "  make push BRANCH=main"
+	@echo "  make commit MSG=\"message\""
+	@echo ""
+	@echo "Local Dev:"
+	@echo "  make install"
+	@echo "  make dev"
+	@echo "  make build"
+	@echo "  make start"
+	@echo "  make lint"
+	@echo "  make test"
+	@echo ""
+	@echo "Prisma:"
+	@echo "  make prisma-generate"
+	@echo "  make migrate"
+	@echo ""
+	@echo "Docker:"
+	@echo "  make docker-up"
+	@echo "  make docker-down"
+	@echo "  make docker-build"
+	@echo ""
+	@echo "Deploy (Ansible):"
+	@echo "  make setup ENV=prod"
+	@echo "  make deploy ENV=prod"
+	@echo ""
 
-# Checkout a branch
+# =========================
+# GIT
+# =========================
 checkout:
-	@git fetch $(REMOTE)
-	@git checkout $(BRANCH)
-	@echo "Checked out branch $(BRANCH)"
+	git fetch $(REMOTE)
+	git checkout $(BRANCH)
 
-# Pull the latest from remote
 pull:
-	@git pull $(REMOTE) $(BRANCH)
-	@echo "Pulled latest from $(REMOTE)/$(BRANCH)"
+	git pull $(REMOTE) $(BRANCH)
 
-# Push current branch
 push:
-	@git push $(REMOTE) $(BRANCH)
-	@echo "Pushed to $(REMOTE)/$(BRANCH)"
+	git push $(REMOTE) $(BRANCH)
 
-# Show git status
 status:
-	@git status
+	git status
 
-# Add all changes and commit
 commit:
 	@if [ -z "$(MSG)" ]; then \
-	  echo "Error: commit message needed!"; \
-	  exit 1; \
+		echo "❌ Commit message required: MSG=\"your message\""; \
+		exit 1; \
 	fi
-	@git add .
-	@git commit -m "$(MSG)"
-	@git push $(REMOTE) $(BRANCH)
-	@echo "Committed & pushed: $(MSG)"
+	git add .
+	git commit -m "$(MSG)"
+	git push $(REMOTE) $(BRANCH)
+
+current:
+	git branch --show-current
+
+# =========================
+# LOCAL DEVELOPMENT
+# =========================
+install:
+	npm install
+
+dev:
+	npm run start:dev
+
+build:
+	npm run build
+
+start:
+	npm run start:prod
+
+lint:
+	npm run lint
+
+test:
+	npm run test
+
+# =========================
+# PRISMA
+# =========================
+prisma-generate:
+	npx prisma generate
+
+migrate:
+	npx prisma migrate deploy
+
+seed:
+	npx prisma db seed
+
+# =========================
+# DOCKER
+# =========================
+docker-build:
+	$(DOCKER_COMPOSE) build
+
+docker-up:
+	$(DOCKER_COMPOSE) up -d
+
+docker-down:
+	$(DOCKER_COMPOSE) down
+
+docker-logs:
+	$(DOCKER_COMPOSE) logs -f api
+
+# =========================
+# ANSIBLE (DEPLOY)
+# =========================
+ansible-check:
+	ansible --version
+
+setup:
+	ansible-playbook \
+		-i $(INVENTORY) \
+		$(ANSIBLE_DIR)/playbooks/setup.yml
+
+deploy:
+	ansible-playbook \
+		-i $(INVENTORY) \
+		$(ANSIBLE_DIR)/playbooks/deploy.yml
+
+rollback:
+	ansible-playbook \
+		-i $(INVENTORY) \
+		$(ANSIBLE_DIR)/playbooks/rollback.yml
+
+# =========================
+# CI
+# =========================
+ci:
+	make install
+	make lint
+	make test
+	make build

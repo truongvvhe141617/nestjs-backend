@@ -1,0 +1,13 @@
+Developer
+   |
+   | make deploy
+   v
+Makefile
+   |
+   | ansible-playbook deploy.yml
+   v
+Ansible
+   |
+   | SSH
+   v
+Server (Docker / PM2 / Systemd)
