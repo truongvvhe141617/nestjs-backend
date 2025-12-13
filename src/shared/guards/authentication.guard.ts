@@ -42,14 +42,14 @@ export class AuthenticationGuard implements CanActivate {
             ) ??
             ({
                 authTypes: [AuthType.None],
-                options: { condition: ConditionGuard.And },
+                options: { condition: ConditionGuard.AND },
             } as AuthTypeDecoratorPayload);
 
         const guards = metadata.authTypes.map(
             (authType) => this.authTypeGuardMap[authType],
         );
 
-        const isOr = metadata.options.condition === ConditionGuard.Or;
+        const isOr = metadata.options.condition === ConditionGuard.OR;
 
         let lastError: any = new UnauthorizedException();
 
