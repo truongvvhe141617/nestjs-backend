@@ -18,3 +18,5 @@ Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v2.33
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem ;
 [System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD\actions-runner-win-x64-2.330.0.zip", "$PWD")
+
+./config.cmd --url https://github.com/truongvvhe141617/nestjs-backend --token APVLLKG22DDAWKBHHCGSXJ3JIGOB6-1

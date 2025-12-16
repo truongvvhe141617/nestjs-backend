@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "TRUONGVV-LIS",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus26.actions.githubusercontent.com/pulAtd5cLCDlX9E6pJZx5uDFyQrF9uTabl78SYn5GlJH6BiGvl/",
+  "gitHubUrl": "https://github.com/truongvvhe141617/nestjs-backend",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
