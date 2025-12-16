@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "truongvvhe141617/nestjs-backend",
+  "pipelineDirectory": "nestjs-backend",
+  "workspaceDirectory": "nestjs-backend\\nestjs-backend",
+  "repositories": {
+    "truongvvhe141617/nestjs-backend": {
+      "repositoryPath": "nestjs-backend\\nestjs-backend",
+      "lastRunOn": "12/17/2025 00:08:45 +07:00"
+    }
+  },
+  "lastRunOn": "12/17/2025 00:08:45 +07:00"
+}

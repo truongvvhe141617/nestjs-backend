@@ -1,16 +1,32 @@
-name: Test Windows Runner
+name: CI/CD Production
 
 on:
+  pull_request:
+    branches: [develop]
+
   push:
-    branches:
-      - master
-      - main
+    branches: [main]
 
 jobs:
-  test:
+  ci:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: [self-hosted, Windows]
 
     steps:
       - uses: actions/checkout@v4
-      - run: node -v
-      - run: npm -v
+      - run: npm ci
+      - run: npm run build
+      - run: pm2 restart nestjs-backend
