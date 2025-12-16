@@ -11,3 +11,10 @@ Ansible
    | SSH
    v
 Server (Docker / PM2 / Systemd)
+
+
+
+Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v2.330.0/actions-runner-win-x64-2.330.0.zip -OutFile actions-runner-win-x64-2.330.0.zip
+
+Add-Type -AssemblyName System.IO.Compression.FileSystem ;
+[System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD\actions-runner-win-x64-2.330.0.zip", "$PWD")
