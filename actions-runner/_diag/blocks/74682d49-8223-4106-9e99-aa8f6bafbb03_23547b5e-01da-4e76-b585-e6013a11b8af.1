@@ -1,0 +1,48 @@
+﻿2025-12-16T17:37:02.2323077Z ##[group]Run actions/checkout@v4
+2025-12-16T17:37:02.2325140Z with:
+2025-12-16T17:37:02.2326028Z   repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.2327449Z   token: ***
+2025-12-16T17:37:02.2328155Z   ssh-strict: true
+2025-12-16T17:37:02.2328970Z   ssh-user: git
+2025-12-16T17:37:02.2329680Z   persist-credentials: true
+2025-12-16T17:37:02.2330385Z   clean: true
+2025-12-16T17:37:02.2331081Z   sparse-checkout-cone-mode: true
+2025-12-16T17:37:02.2331812Z   fetch-depth: 1
+2025-12-16T17:37:02.2332469Z   fetch-tags: false
+2025-12-16T17:37:02.2333120Z   show-progress: true
+2025-12-16T17:37:02.2333788Z   lfs: false
+2025-12-16T17:37:02.2334452Z   submodules: false
+2025-12-16T17:37:02.2335064Z   set-safe-directory: true
+2025-12-16T17:37:02.2336745Z ##[endgroup]
+2025-12-16T17:37:02.5595412Z Syncing repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.5596555Z ##[group]Getting Git version info
+2025-12-16T17:37:02.5596922Z Working directory is 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:37:02.6007461Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" version
+2025-12-16T17:37:02.6161434Z git version 2.40.1.windows.1
+2025-12-16T17:37:02.6182387Z ##[endgroup]
+2025-12-16T17:37:02.6194174Z Copying 'C:\Users\truong.vv\.gitconfig' to 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\e9b9734f-9478-4b3e-addf-b3578feebf4f\.gitconfig'
+2025-12-16T17:37:02.6215504Z Temporarily overriding HOME='D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\e9b9734f-9478-4b3e-addf-b3578feebf4f' before making global git config changes
+2025-12-16T17:37:02.6216167Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-16T17:37:02.6221735Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --global --add safe.directory D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:37:02.6404437Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --get remote.origin.url
+2025-12-16T17:37:02.6553854Z https://github.com/truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.6583711Z ##[group]Removing previously created refs, to avoid conflicts
+2025-12-16T17:37:02.6593007Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" rev-parse --symbolic-full-name --verify --quiet HEAD
+2025-12-16T17:37:02.7072910Z ##[endgroup]
+2025-12-16T17:37:02.7079894Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" submodule status
+2025-12-16T17:37:03.4324947Z ##[group]Cleaning the repository
+2025-12-16T17:37:03.4333417Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" clean -ffdx
+2025-12-16T17:37:03.4499829Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" reset --hard HEAD
+2025-12-16T17:37:03.4663292Z ##[error]fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+2025-12-16T17:37:03.4668433Z Use '--' to separate paths from revisions, like this:
+2025-12-16T17:37:03.4668756Z 'git <command> [<revision>...] -- [<file>...]'
+2025-12-16T17:37:03.4669602Z ##[endgroup]
+2025-12-16T17:37:03.4676814Z ##[warning]Unable to clean or reset the repository. The repository will be recreated instead.
+2025-12-16T17:37:03.4679120Z Deleting the contents of 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:37:03.4720816Z ##[group]Initializing the repository
+2025-12-16T17:37:03.4734096Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" init D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:37:03.4946031Z Initialized empty Git repository in D:/projects/nestjs/nestjs-backend/actions-runner/_work/nestjs-backend/nestjs-backend/.git/
+2025-12-16T17:37:03.4967029Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" remote add origin https://github.com/truongvvhe141617/nestjs-backend
+2025-12-16T17:37:03.5143959Z ##[endgroup]
+2025-12-16T17:37:03.5144324Z ##[group]Disabling automatic garbage collection
+2025-12-

@@ -1,0 +1,55 @@
+﻿2025-12-16T17:36:59.2648361Z Current runner version: '2.330.0'
+2025-12-16T17:36:59.2653765Z Runner name: 'TRUONGVV-LIS'
+2025-12-16T17:36:59.2654209Z Runner group name: 'Default'
+2025-12-16T17:36:59.2655662Z Machine name: 'TRUONGVV-LIS'
+2025-12-16T17:36:59.2658108Z ##[group]GITHUB_TOKEN Permissions
+2025-12-16T17:36:59.2659927Z Contents: read
+2025-12-16T17:36:59.2660205Z Metadata: read
+2025-12-16T17:36:59.2660473Z Packages: read
+2025-12-16T17:36:59.2660770Z ##[endgroup]
+2025-12-16T17:36:59.2662221Z Secret source: Actions
+2025-12-16T17:36:59.2662608Z Prepare workflow directory
+2025-12-16T17:36:59.3017702Z Prepare all required actions
+2025-12-16T17:36:59.3048323Z Getting action download info
+2025-12-16T17:37:00.1809388Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-16T17:37:02.1554960Z Complete job name: test
+2025-12-16T17:37:02.2323227Z ##[group]Run actions/checkout@v4
+2025-12-16T17:37:02.2325206Z with:
+2025-12-16T17:37:02.2326043Z   repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.2327478Z   token: ***
+2025-12-16T17:37:02.2328171Z   ssh-strict: true
+2025-12-16T17:37:02.2328997Z   ssh-user: git
+2025-12-16T17:37:02.2329694Z   persist-credentials: true
+2025-12-16T17:37:02.2330397Z   clean: true
+2025-12-16T17:37:02.2331095Z   sparse-checkout-cone-mode: true
+2025-12-16T17:37:02.2331827Z   fetch-depth: 1
+2025-12-16T17:37:02.2332490Z   fetch-tags: false
+2025-12-16T17:37:02.2333135Z   show-progress: true
+2025-12-16T17:37:02.2333828Z   lfs: false
+2025-12-16T17:37:02.2334467Z   submodules: false
+2025-12-16T17:37:02.2335078Z   set-safe-directory: true
+2025-12-16T17:37:02.2336780Z ##[endgroup]
+2025-12-16T17:37:02.5595476Z Syncing repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.5596559Z ##[group]Getting Git version info
+2025-12-16T17:37:02.5597029Z Working directory is 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:37:02.6007531Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" version
+2025-12-16T17:37:02.6161588Z git version 2.40.1.windows.1
+2025-12-16T17:37:02.6182429Z ##[endgroup]
+2025-12-16T17:37:02.6194212Z Copying 'C:\Users\truong.vv\.gitconfig' to 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\e9b9734f-9478-4b3e-addf-b3578feebf4f\.gitconfig'
+2025-12-16T17:37:02.6215543Z Temporarily overriding HOME='D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\e9b9734f-9478-4b3e-addf-b3578feebf4f' before making global git config changes
+2025-12-16T17:37:02.6216176Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-16T17:37:02.6221761Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --global --add safe.directory D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:37:02.6404544Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --get remote.origin.url
+2025-12-16T17:37:02.6553932Z https://github.com/truongvvhe141617/nestjs-backend
+2025-12-16T17:37:02.6583753Z ##[group]Removing previously created refs, to avoid conflicts
+2025-12-16T17:37:02.6593046Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" rev-parse --symbolic-full-name --verify --quiet HEAD
+2025-12-16T17:37:02.7072960Z ##[endgroup]
+2025-12-16T17:37:02.7079952Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" submodule status
+2025-12-16T17:37:03.4324996Z ##[group]Cleaning the repository
+2025-12-16T17:37:03.4333459Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" clean -ffdx
+2025-12-16T17:37:03.4499873Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" reset --hard HEAD
+2025-12-16T17:37:03.4663349Z ##[error]fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+2025-12-16T17:37:03.4668458Z Use '--' to separate paths from revisions, like this:
+2025-12-16T17:37:03.4668819Z 'git <command> [<revision>...] -- [<file>...]'
+2025-12-16T17:37:03.4669606Z ##[endgroup]
+2025-12-16T17:37:03.4676838Z ##[warning]Unable to cl
