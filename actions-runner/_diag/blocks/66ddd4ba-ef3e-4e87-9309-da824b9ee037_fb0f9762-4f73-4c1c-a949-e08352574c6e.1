@@ -1,0 +1,42 @@
+﻿2025-12-16T17:08:49.2547560Z ##[group]Run actions/checkout@v4
+2025-12-16T17:08:49.2548406Z with:
+2025-12-16T17:08:49.2548604Z   repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:08:49.2549102Z   token: ***
+2025-12-16T17:08:49.2549240Z   ssh-strict: true
+2025-12-16T17:08:49.2549388Z   ssh-user: git
+2025-12-16T17:08:49.2549533Z   persist-credentials: true
+2025-12-16T17:08:49.2549696Z   clean: true
+2025-12-16T17:08:49.2549854Z   sparse-checkout-cone-mode: true
+2025-12-16T17:08:49.2550032Z   fetch-depth: 1
+2025-12-16T17:08:49.2550168Z   fetch-tags: false
+2025-12-16T17:08:49.2550313Z   show-progress: true
+2025-12-16T17:08:49.2550465Z   lfs: false
+2025-12-16T17:08:49.2550623Z   submodules: false
+2025-12-16T17:08:49.2550773Z   set-safe-directory: true
+2025-12-16T17:08:49.2551119Z ##[endgroup]
+2025-12-16T17:08:51.1719801Z Syncing repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:08:51.1720895Z ##[group]Getting Git version info
+2025-12-16T17:08:51.1721274Z Working directory is 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:08:51.2004981Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" version
+2025-12-16T17:08:51.2140137Z git version 2.40.1.windows.1
+2025-12-16T17:08:51.2159866Z ##[endgroup]
+2025-12-16T17:08:51.2170865Z Copying 'C:\Users\truong.vv\.gitconfig' to 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\9a231a46-c888-434c-82dc-1643a0dd6ea8\.gitconfig'
+2025-12-16T17:08:51.2190019Z Temporarily overriding HOME='D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\9a231a46-c888-434c-82dc-1643a0dd6ea8' before making global git config changes
+2025-12-16T17:08:51.2190658Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-16T17:08:51.2196439Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --global --add safe.directory D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:08:51.2351963Z Deleting the contents of 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:08:51.2357483Z ##[group]Initializing the repository
+2025-12-16T17:08:51.2365791Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" init D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:08:51.2669893Z Initialized empty Git repository in D:/projects/nestjs/nestjs-backend/actions-runner/_work/nestjs-backend/nestjs-backend/.git/
+2025-12-16T17:08:51.2690554Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" remote add origin https://github.com/truongvvhe141617/nestjs-backend
+2025-12-16T17:08:51.2921819Z ##[endgroup]
+2025-12-16T17:08:51.2922253Z ##[group]Disabling automatic garbage collection
+2025-12-16T17:08:51.2929410Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local gc.auto 0
+2025-12-16T17:08:51.3094783Z ##[endgroup]
+2025-12-16T17:08:51.3096018Z ##[group]Setting up auth
+2025-12-16T17:08:51.3106996Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-12-16T17:08:51.3272910Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-12-16T17:08:51.9674250Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-16T17:08:51.9854628Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-12-16T17:08:52.5179372Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-16T17:08:52.5351161Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" submodule foreach 

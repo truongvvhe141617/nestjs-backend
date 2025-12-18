@@ -1,0 +1,53 @@
+﻿2025-12-16T17:08:45.7789695Z Current runner version: '2.330.0'
+2025-12-16T17:08:45.7795354Z Runner name: 'TRUONGVV-LIS'
+2025-12-16T17:08:45.7795761Z Runner group name: 'Default'
+2025-12-16T17:08:45.7796235Z Machine name: 'TRUONGVV-LIS'
+2025-12-16T17:08:45.7797943Z ##[group]GITHUB_TOKEN Permissions
+2025-12-16T17:08:45.7799678Z Contents: read
+2025-12-16T17:08:45.7799945Z Metadata: read
+2025-12-16T17:08:45.7800209Z Packages: read
+2025-12-16T17:08:45.7800493Z ##[endgroup]
+2025-12-16T17:08:45.7801988Z Secret source: Actions
+2025-12-16T17:08:45.7802338Z Prepare workflow directory
+2025-12-16T17:08:45.8077935Z Prepare all required actions
+2025-12-16T17:08:45.8106539Z Getting action download info
+2025-12-16T17:08:46.7523866Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-16T17:08:49.1891479Z Complete job name: test
+2025-12-16T17:08:49.2547628Z ##[group]Run actions/checkout@v4
+2025-12-16T17:08:49.2548411Z with:
+2025-12-16T17:08:49.2548607Z   repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:08:49.2549105Z   token: ***
+2025-12-16T17:08:49.2549243Z   ssh-strict: true
+2025-12-16T17:08:49.2549391Z   ssh-user: git
+2025-12-16T17:08:49.2549536Z   persist-credentials: true
+2025-12-16T17:08:49.2549699Z   clean: true
+2025-12-16T17:08:49.2549857Z   sparse-checkout-cone-mode: true
+2025-12-16T17:08:49.2550034Z   fetch-depth: 1
+2025-12-16T17:08:49.2550170Z   fetch-tags: false
+2025-12-16T17:08:49.2550322Z   show-progress: true
+2025-12-16T17:08:49.2550471Z   lfs: false
+2025-12-16T17:08:49.2550626Z   submodules: false
+2025-12-16T17:08:49.2550776Z   set-safe-directory: true
+2025-12-16T17:08:49.2551122Z ##[endgroup]
+2025-12-16T17:08:51.1719850Z Syncing repository: truongvvhe141617/nestjs-backend
+2025-12-16T17:08:51.1720900Z ##[group]Getting Git version info
+2025-12-16T17:08:51.1721346Z Working directory is 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:08:51.2005023Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" version
+2025-12-16T17:08:51.2140197Z git version 2.40.1.windows.1
+2025-12-16T17:08:51.2159888Z ##[endgroup]
+2025-12-16T17:08:51.2170907Z Copying 'C:\Users\truong.vv\.gitconfig' to 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\9a231a46-c888-434c-82dc-1643a0dd6ea8\.gitconfig'
+2025-12-16T17:08:51.2190047Z Temporarily overriding HOME='D:\projects\nestjs\nestjs-backend\actions-runner\_work\_temp\9a231a46-c888-434c-82dc-1643a0dd6ea8' before making global git config changes
+2025-12-16T17:08:51.2190661Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-16T17:08:51.2196467Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --global --add safe.directory D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:08:51.2352079Z Deleting the contents of 'D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend'
+2025-12-16T17:08:51.2357521Z ##[group]Initializing the repository
+2025-12-16T17:08:51.2365817Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" init D:\projects\nestjs\nestjs-backend\actions-runner\_work\nestjs-backend\nestjs-backend
+2025-12-16T17:08:51.2669957Z Initialized empty Git repository in D:/projects/nestjs/nestjs-backend/actions-runner/_work/nestjs-backend/nestjs-backend/.git/
+2025-12-16T17:08:51.2690608Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" remote add origin https://github.com/truongvvhe141617/nestjs-backend
+2025-12-16T17:08:51.2921861Z ##[endgroup]
+2025-12-16T17:08:51.2922257Z ##[group]Disabling automatic garbage collection
+2025-12-16T17:08:51.2929438Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local gc.auto 0
+2025-12-16T17:08:51.3094837Z ##[endgroup]
+2025-12-16T17:08:51.3096050Z ##[group]Setting up auth
+2025-12-16T17:08:51.3107105Z [command]"C:\Program Files\Git\mingw64\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-12-16T17:08:51.3272961Z [command]"C:\Program Fil
